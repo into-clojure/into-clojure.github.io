@@ -2,6 +2,8 @@ Hi Robert,
 
 je jette ici le contenu de notre première séance.
 
+* FUNCTIONS
+
 * write a function that takes a function and applies it to some arguments
 
 (defn h[f] (f 1 2))
@@ -18,3 +20,74 @@ user=> ((make-inc 3) 10)
 13
 
 * Example from core-sudoku.clj
+
+* functions with ? at the end : naming conventions (functions with !)
+
+* functions taking functions as arguments: map,...
+(map f val coll)
+
+* collect ages of people inside a collection
+
+user=> (def students [{:name "bob" :age 29} {:name "joe" :age 56}])
+#'user/students
+
+* TODO intermediary step I don't remember
+
+user=> (defn ages [classroom] (map :age classroom))
+;; keyword is also a function
+#'user/ages
+user=> (ages students)
+(29 56)
+
+* anonymous functions
+Show #(%1 %2) syntax
+
+* RECUR / LOOP
+** quick sort (with lazy-seq later... even show example from joy of clojure)
+
+
+* Reduce
+Sum the ages of the teachers.
+
+* Show "big" program: https://github.com/juliangamble/clojure-ants-simulation/blob/master/src/ants.clj
+
+* DESTRUCTURATION
+From right to left, we fill the unknown
+Show example with map
+
+user=> (def bob (first students))
+#'user/bob
+user=> (let [{age-bob :age} bob] age-bob)
+29
+use
+
+* LAZYNESS
+
+TODO: include previous example from .lein history
+
+** avoid evaluation (when needed or when a collection is realized)
+** !! take care of NOT holding a reference to the head
+user=> (let [[t d] (split-with #(< % 12) (range 1e8))] [(count t) (count d)])
+[12 99999988]
+
+works, but following not: why?? (I know ;-) 
+user=> (let [[t d] (split-with #(< % 12) (range 1e8))] [(count d) (count t)])
+
+OutOfMemoryError Java heap space  java.lang.Long.valueOf (Long.java:557)
+user=> 
+
+* build a hash with keys and values
+
+* zipmap
+
+* exercices from 4clojure: 
+** http://www.4clojure.com/problem/106 (from one number to another with *2 /2 and +2)
+** http://www.4clojure.com/problem/82 (chain words)
+
+* MACROS
+** just mention the 2 threading ones -> and ->>
+
+** CONCURRENCY
+** principles of separation of identity, values, ... atoms, ... princ
+
+
