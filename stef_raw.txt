@@ -1,0 +1,20 @@
+Hi Robert,
+
+je jette ici le contenu de notre première séance.
+
+* write a function that takes a function and applies it to some arguments
+
+(defn h[f] (f 1 2))
+
+(h +)
+; -> 3
+
+* make-inc that takes a step argument.
+user=> (defn make-inc [step]
+  #_=>  (fn [x] (+ x step)))
+#'user/make-inc
+
+user=> ((make-inc 3) 10)
+13
+
+* Example from core-sudoku.clj
