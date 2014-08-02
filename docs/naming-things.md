@@ -2,7 +2,7 @@
 layout: docs
 title: Naming things
 prev_section: calling-a-function
-next_section: home
+next_section: lazyness
 permalink: /docs/naming-things/
 ---
 
