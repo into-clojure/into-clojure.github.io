@@ -13,20 +13,26 @@ permalink: /docs/first-steps/
 
 ## Note about examples
 
-You will see this:
+From now on, you'll be playing inside the REPL.
+If not done yet, please refer to 
+[getting-started](/docs/getting-started/)
+to install and launch a REPL.
+
+The code snippets will be presented like this:
+
+{% highlight clojure %}
+"hello clojure"
+;; => "hello clojure"
+{% endhighlight %}
+
+so that they can easily be cut and pasted in your REPL, where they will be displayed as
 
 {% highlight text %}
 user=> "hello clojure"
 "hello clojure"
 {% endhighlight %}
 
-We will type this, so that you can easily copy&paste it into your
-REPL:
 
-{% highlight clojure %}
-"hello clojure"
-;; => "hello clojure"
-{% endhighlight %}
 
 Because `;;` are comments in Clojure.
 
@@ -71,7 +77,7 @@ something
 ;; => CompilerException java.lang.RuntimeException: Unable to resolve symbol: something in this context
 {% endhighlight %}
 
-With named things we are not yet there...
+With named things we are not there yet...
 
 <div class="note">
   <h5>What have we seen here?</h5>
