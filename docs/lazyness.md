@@ -40,8 +40,7 @@ Let's start small with a function that returns the next even number after a give
 ;; 4
 {% endhighlight %}
 
-So far, so good, what would look like our all-even function?
-
+So far, so good.
 To make you feel the solution, let's manually build the list of the first even numbers:
 {% highlight clojure %}
 (cons 0 [])
@@ -64,6 +63,27 @@ user=> (take 10 (all-even-1))
 ;; StackOverflowError   clojure.lang.Numbers$LongOps.add (Numbers.java:430)
 {% endhighlight %}
 
+What happened? We lack the magic ingredient : `lazy-seq`
+
+<div class="note info">
+lazy-seq
+  <p>  
+  Takes a body of expressions that returns an ISeq or nil, and yields
+  a Seqable object that will invoke the body only the first time seq
+  is called, and will cache the result and return it on all subsequent
+  seq calls.</p>
+</div>
+
+{% highlight clojure %}
+(defn all-even
+  ([] (all-even 0))
+  ([n] (lazy-seq (cons n (all-even (next-even n))))))
+;; #'user/all-even
+(take 10 (all-even))
+;; (0 2 4 6 8 10 12 14 16 18)
+{% endhighlight %}
+
 <div class="note">
   <h5>What have we seen here?</h5>
+  <p>How to construct an infinite sequence thanks to lazy-ness</p>
 </div>
